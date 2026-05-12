@@ -744,17 +744,17 @@
     <div class="stats-grid">
 
       <div class="card stat-box">
-        <h3 class="counter" data-target="8">0</h3>
+        <h3>8.00</h3>
         <p>Current CGPA</p>
       </div>
-
+      
       <div class="card stat-box">
-        <h3 class="counter" data-target="2027">0</h3>
+        <h3>2027</h3>
         <p>Graduation Year</p>
       </div>
-
+      
       <div class="card stat-box">
-        <h3 class="counter" data-target="10">0</h3>
+        <h3>10+</h3>
         <p>Technologies Exploring</p>
       </div>
 
@@ -1051,22 +1051,22 @@
     });
   }
 
-  const counters = document.querySelectorAll('.counter');
+ const counters = document.querySelectorAll('.counter');
   let started = false;
-
+  
   function startCounters() {
     const statsSection = document.querySelector('.stats-grid');
     const top = statsSection.getBoundingClientRect().top;
-
+  
     if(top < window.innerHeight - 100 && !started) {
       counters.forEach(counter => {
         const target = +counter.getAttribute('data-target');
         let count = 0;
         const increment = target / 80;
-
+  
         function updateCounter() {
           count += increment;
-
+  
           if(count < target) {
             counter.innerText = Math.ceil(count);
             requestAnimationFrame(updateCounter);
@@ -1080,21 +1080,19 @@
             }
           }
         }
-
+  
         updateCounter();
       });
-
+  
       started = true;
     }
   }
 
   window.addEventListener('scroll', () => {
     revealSections();
-    startCounters();
   });
 
   revealSections();
-  startCounters();
 </script>
 
 </body>
